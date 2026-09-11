@@ -7,7 +7,7 @@ embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products,read_products"
+scopes = "write_products,read_products,read_orders,write_orders,write_themes"
 
 optional_scopes = [ ]
 use_legacy_install_flow = false
@@ -49,7 +49,7 @@ api_version = "2026-07"
 
 [auth]
 redirect_urls = [ 
-  "https://shopify-my-app.vercel.app/api/auth/callback"
+  "https://shopify-my-app.vercel.app/auth/callback"
 ]
 
 [build]
