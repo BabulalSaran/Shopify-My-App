@@ -4,7 +4,12 @@ import { AppProvider } from "@shopify/shopify-app-react-router/react";
 import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }) => {
-  await authenticate.admin(request);
+  try {
+    await authenticate.admin(request);
+  } catch (error) {
+    console.error("Authentication error in app.jsx loader:", error);
+    throw error;
+  }
 
   // eslint-disable-next-line no-undef
   return { apiKey: process.env.SHOPIFY_API_KEY || "" };
@@ -29,7 +34,9 @@ export default function App() {
 
 // Shopify needs React Router to catch some thrown responses, so that their headers are included in the response.
 export function ErrorBoundary() {
-  return boundary.error(useRouteError());
+  const error = useRouteError();
+  console.error("ErrorBoundary caught in app.jsx:", error);
+  return boundary.error(error);
 }
 
 export const headers = (headersArgs) => {
