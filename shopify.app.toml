@@ -2,12 +2,12 @@
 
 client_id = "0faeee71e1b2723f66110e295d812d36"
 name = "Theme App"
-application_url = "https://myappinfo.com"
+application_url = "https://shopify-my-app.vercel.app"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products,write_themes,read_orders,write_orders"
+scopes = "write_products,read_products"
 
 optional_scopes = [ ]
 use_legacy_install_flow = false
@@ -48,7 +48,9 @@ api_version = "2026-07"
   topics = [ "app/scopes_update" ]
 
 [auth]
-redirect_urls = [ ]
+redirect_urls = [ 
+  "https://shopify-my-app.vercel.app/api/auth/callback"
+]
 
 [build]
 automatically_update_urls_on_dev = true
