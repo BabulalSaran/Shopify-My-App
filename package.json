@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "postinstall": "prisma generate",
-    "vercel-build": "prisma generate && prisma db push --accept-data-loss && react-router build",
+    "vercel-build": "prisma generate && react-router build",
     "build": "prisma generate && react-router build",
     "dev": "shopify app dev",
     "config:link": "shopify app config link",
